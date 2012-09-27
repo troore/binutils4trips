@@ -1,0 +1,19 @@
+NEW=/projects/trips/arch/projects/binutils/by-binutils/bfd
+OLD=/projects/trips/arch/projects/binutils/by-binutils-org/bfd
+
+cd $NEW
+for i in *.*
+do
+	diff $i $OLD > /tmp/out.$$
+	hey=$?
+	if [ $hey -eq 0 ]
+	then
+		echo _nothing_ > /dev/null
+	else
+		echo -----------------------------------------------------
+		echo "             $i"
+		echo -----------------------------------------------------
+		cat /tmp/out.$$
+	fi
+done
+rm -f /tmp/out.*

@@ -1,0 +1,252 @@
+
+##### tmax.p0.t0 Thread Related Info ##### 
+tmax.p0.t0.IPC                           6.5154
+tmax.p0.t0.IPC-no-overhead               6.5154
+tmax.p0.t0.response-time (cycles)        70890
+tmax.p0.t0.response-time-no-overhead (cycles) 70890
+tmax.p0.t0.execution-time (cycles)       47191
+tmax.p0.t0.waiting-time (cycles)         23699
+tmax.p0.t0.reconfig-overhead (cycles)    0
+
+===== tmax.p0.t0 Power Measurement ===== 
+tmax.p0.t0 total OPN num hops:           0
+tmax.p0.t0 total FP ALU used:            130291
+tmax.p0.t0 total INT ALU used:           17627
+tmax.p0.t0 total Limited INT ALU used:   160204
+tmax.p0.t0 total delivered operands:     378795
+
+===== tmax.p0.t0 Fetch Latency =====    
+tmax.p0.t0 avg inst per block:           74.7755
+tmax.p0.t0 avg branch prediction lat:    2
+tmax.p0.t0 avg control transfer lat:     0.0005
+tmax.p0.t0 avg icache header lat:        3
+tmax.p0.t0 avg fetch comm lat:           5.9629
+tmax.p0.t0 avg icache body lat:          2
+tmax.p0.t0 avg iq dispatch lat:          1.4887
+
+===== tmax.p0.t0 Commit Latency =====   
+tmax.p0.t0 avg commit comm lat:          5.8326
+tmax.p0.t0 avg commit write lat:         1.0005
+
+===== tmax.p0.t0 OPN Related =====      
+tmax.p0.t0 ratio mem opn traffic:        0.2908
+tmax.p0.t0 ratio mem opn lat:            0.5239
+tmax.p0.t0 avg hop lat:                  1.5010
+tmax.p0.t0 avg mem hop lat:              2.5472
+tmax.p0.t0 avg load hop lat:             2.5509
+tmax.p0.t0 avg transfer hop lat:         2.5436
+tmax.p0.t0 avg reg hop lat:              1.1117
+tmax.p0.t0 avg other hop lat:            1.0646
+tmax.p0.t0 avg cont lat:                 5.0535
+tmax.p0.t0 avg mem cont lat:             6.9750
+tmax.p0.t0 avg load cont lat:            6.2690
+tmax.p0.t0 avg transfer cont lat:        7.6810
+tmax.p0.t0 avg reg cont lat:             4.1715
+tmax.p0.t0 avg other cont lat:           3.8571
+
+===== tmax.p0.t0 Cache Related =====    
+tmax.p0.t0.Level0.ld_hits:               63474
+tmax.p0.t0.Level0.ld_misses:             1190
+tmax.p0.t0.Level0.st_hits:               15
+tmax.p0.t0.Level0.st_misses:             1012
+tmax.p0.t0.Level0.hit_rate:              0.9665
+tmax.p0.t0.Level1.ld_hits:               102
+tmax.p0.t0.Level1.ld_misses:             368
+tmax.p0.t0.Level1.st_hits:               946
+tmax.p0.t0.Level1.st_misses:             66
+tmax.p0.t0.Level1.hit_rate:              0.7072
+tmax.p0.t0.Header Cache.ld_hits:         4189
+tmax.p0.t0.Header Cache.ld_misses:       45
+tmax.p0.t0.Header Cache.st_hits:         0
+tmax.p0.t0.Header Cache.st_misses:       0
+tmax.p0.t0.Header Cache.hit_rate:        0.9894
+
+===== tmax.p0.t0 OCN Related =====      
+tmax.p0.t0.avg l2 lat:                   20.5949
+tmax.p0.t0.avg contended l2 hit lat:     13.3943
+tmax.p0.t0.avg uncontended l2 hit lat:   13.3763
+tmax.p0.t0.total l2 cnt:                 1012
+tmax.p0.t0.total l2_hit cnt:             946
+tmax.p0.t0.total l2_miss cnt:            66
+
+===== tmax.p0.t0 Branch Related Info ===== 
+tmax.p0.t0 correct (commit):             4067
+tmax.p0.t0 mis     (commit):             54
+tmax.p0.t0 total pred:                   4201
+tmax.p0.t0 total update:                 4121
+tmax.p0.t0 total miss update:            54
+tmax.p0.t0 bp rate:                      0.9869
+
+===== tmax.p0.t0 mem dependence related info ===== 
+tmax.p0.t0 flushed due to load violation:  0
+tmax.p0.t0 mispredicted conservative should have been 1st:  0
+tmax.p0.t0 mispredicted conservative should have been aggr:  0
+tmax.p0.t0 mispredicted one-store that should have been cons:  0
+tmax.p0.t0 mispredicted one-store that should have been aggr:  0
+tmax.p0.t0 correctly predicted conservative:  0
+tmax.p0.t0 correctly predicted one-store:  0
+
+===== tmax.p0.t0 Thread Other Info ===== 
+tmax.p0.t0.blocks_fetched.type0          0
+tmax.p0.t0.blocks_fetched.type1          80
+tmax.p0.t0.blocks_fetched.type2          2064
+tmax.p0.t0.blocks_fetched.type3          2057
+tmax.p0.t0.blocks_fetched.type4          0
+tmax.p0.t0.blocks_fetched                4201
+tmax.p0.t0.blocks_executed               4121
+tmax.p0.t0.blocks_committed              4121
+tmax.p0.t0.insts_fetched                 314132
+tmax.p0.t0.insts_executed                321406
+tmax.p0.t0.insts_committed               307466
+tmax.p0.t0.reads_fetched                 13419
+tmax.p0.t0.writes_fetched                7380
+tmax.p0.t0.writes_nullified              3
+tmax.p0.t0.writes_committed              7194
+tmax.p0.t0.loads_fetched                 65816
+tmax.p0.t0.loads_executed                64664
+tmax.p0.t0.stores_fetched                1041
+tmax.p0.t0.stores_executed               1027
+tmax.p0.t0.stores_nullified              4
+tmax.p0.t0.stores_committed              1023
+tmax.p0.t0.exceptions                    0
+tmax.p0.t0.system_calls                  1
+tmax.p0.t0.execution_steps               0
+tmax.p0.t0.store_forwardings             0
+tmax.p0.t0.moves_executed                31424
+tmax.p0.t0.moves_ratio                   0.0978
+tmax.p0.t0.insts_fetched_per_block       74.7755
+tmax.p0.t0.insts_executed_per_block      77.9922
+tmax.p0.t0.insts_executed_per_fetched    1.0232
+tmax.p0.t0.insts_executed_per_step       inf
+tmax.p0.t0.execution_steps_per_block     0.0000
+tmax.p0.t0.insts_executed.genu           31681
+tmax.p0.t0.insts_executed.app            3122
+tmax.p0.t0.insts_executed.mov3           20226
+tmax.p0.t0.insts_executed.bro            4157
+tmax.p0.t0.insts_executed.callo          2
+tmax.p0.t0.insts_executed.scall          1
+tmax.p0.t0.insts_executed.call           1
+tmax.p0.t0.insts_executed.ret            4
+tmax.p0.t0.insts_executed.null           5
+tmax.p0.t0.insts_executed.fstod          64641
+tmax.p0.t0.insts_executed.fdtos          1010
+tmax.p0.t0.insts_executed.mov            11198
+tmax.p0.t0.insts_executed.extsw          1047
+tmax.p0.t0.insts_executed.fadd           32320
+tmax.p0.t0.insts_executed.fmul           32320
+tmax.p0.t0.insts_executed.add            32339
+tmax.p0.t0.insts_executed.sub            1
+tmax.p0.t0.insts_executed.movi           1083
+tmax.p0.t0.insts_executed.addi           3070
+tmax.p0.t0.insts_executed.subi           2
+tmax.p0.t0.insts_executed.andi           3
+tmax.p0.t0.insts_executed.slli           3127
+tmax.p0.t0.insts_executed.tlti           1042
+tmax.p0.t0.insts_executed.tnei           9
+tmax.p0.t0.insts_executed.lw             64647
+tmax.p0.t0.insts_executed.ld             13
+tmax.p0.t0.insts_executed.lws            4
+tmax.p0.t0.insts_executed.sw             1014
+tmax.p0.t0.insts_executed.sd             13
+
+mem.allocated_kb                        4
+
+===== System Power Measurement =====    
+total OPN num hops:                      985302
+total FP ALU used:                       130291
+total INT ALU used:                      17627
+total Limited INT ALU used:              160204
+total delivered operands:                378795
+total active cycles:                     16
+total run cycles:                        47191
+total tile:                              16
+ratio of active cycles per tile:         0.0000
+
+===== System OPN Related =====          
+ratio mem opn traffic:                   0.2908
+ratio mem opn lat:                       0.5239
+avg hop lat:                             1.5010
+avg mem hop lat:                         2.5472
+avg load hop lat:                        2.5509
+avg transfer hop lat:                    2.5436
+avg reg hop lat:                         1.1117
+avg other hop lat:                       1.0646
+avg cont lat:                            5.0535
+avg mem cont lat:                        6.9750
+avg load cont lat:                       6.2690
+avg transfer cont lat:                   7.6810
+avg reg cont lat:                        4.1715
+avg other cont lat:                      3.8571
+
+===== System Cache Related =====        
+tmax.p0.cache.Level0.ld_hits:            63474
+tmax.p0.cache.Level0.ld_misses:          1190
+tmax.p0.cache.Level0.st_hits:            15
+tmax.p0.cache.Level0.st_misses:          1012
+tmax.p0.cache.Level0.hit_rate:           0.9665
+tmax.p0.cache.Level1.ld_hits:            102
+tmax.p0.cache.Level1.ld_misses:          368
+tmax.p0.cache.Level1.st_hits:            946
+tmax.p0.cache.Level1.st_misses:          66
+tmax.p0.cache.Level1.hit_rate:           0.7072
+tmax.p0.cache.Header Cache.ld_hits:      4189
+tmax.p0.cache.Header Cache.ld_misses:    45
+tmax.p0.cache.Header Cache.st_hits:      0
+tmax.p0.cache.Header Cache.st_misses:    0
+tmax.p0.cache.Header Cache.hit_rate:     0.9894
+tmax.p0.cache.fake_wakeups               0
+                                         
+services.syscalls                        2
+services.syscalls.exit                   1
+services.syscalls.read                   0
+services.syscalls.write                  0
+services.syscalls.open                   0
+services.syscalls.close                  0
+services.syscalls.time                   1
+services.syscalls.lseek                  0
+services.syscalls.getpid                 0
+services.syscalls.brk                    0
+services.syscalls.gettimeofday           0
+services.syscalls.creat                  0
+services.syscalls.stat                   0
+services.syscalls.lstat                  0
+services.syscalls.fstat                  0
+services.syscalls.unlink                 0
+services.syscalls.mmap                   0
+services.syscalls.pdump                  0
+services.task_count                      1
+services.task_switches                   0
+services.mode_switches                   0
+services.exceptions.proc                 2
+services.exceptions.reset                0
+services.exceptions.interrupt            0
+services.exceptions.thread               2
+
+===== System Performance Related =====  
+average_response_time                    70890.0000
+average_response_time_no_overhead        70890.0000
+average_execution_time                   47191.0000
+average_waiting_time                     23699.0000
+average_reconfiguration_overhead         0.0000
+num_reconfigurations                     0
+
+===== System OCN Related =====          
+average l2 latency:                      20.5949
+average contended l2 hit latency:        13.3943
+average uncontended l2 hit latency:      13.3763
+total l2 cnt:                            1012
+total l2_hit cnt:                        946
+total l2_miss cnt:                       66
+
+                                        
+sim.modules                              118
+sim.modules.update                       100
+sim.modules.evaluate                     101
+sim.fatals                               0
+sim.warnings                             0
+sim.insts                                307466
+sim.blocks                               4121
+sim.cycles                               70891
+sim.updates                              7089118
+sim.evaluates                            7160008
+sim.power_updates                        0

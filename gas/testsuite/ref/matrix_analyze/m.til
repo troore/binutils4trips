@@ -1,0 +1,543 @@
+;# Set scale.score.Scribble.doIfConversion = 0.
+;# Set scale.backend.trips2.Trips2Machine.softwareFDIV = 1.
+;# Set scale.backend.trips2.HyperblockFormation.unrollForLoops = 0.
+;# Set scale.backend.trips2.HyperblockFormation.unrollLoops = 1.
+;# Set scale.backend.trips2.HyperblockFormation.tailDuplicate = 0.
+;# Set scale.backend.trips2.HyperblockFormation.peelLoops = 1.
+;# Set scale.score.trans.URJ.inhibitWhileLoops = 1.
+;# Set scale.backend.trips2.Trips2Machine.tcconfigPath = "/home/troore/Projects/trips/ttools2/etc/config/default".
+;# Target architecture: trips.
+;# Host architecture: i386.
+;# Simple intra-procedural alias analysis.
+;# Separate compilation.
+;# Scale Compiler Version:  Fri Jul 20 00:07:46 CDT 2007 
+;# Inlining level: 1.1.
+;# Data dependence testing: tibBO.
+;# Optimizations: a1c0fgjcamnpxnmpibudl.
+;# Performing: Structure Fields in Registers
+;# Performing: Global Variable Replacement
+;# Performing: Flatten, Unroll & Jam
+;# Performing: Sparse Conditional Constant Propagation
+;# Performing: Array Access Strength Reduction
+;# Performing: Loop Invariant Code Motion
+;# Performing: Global Value Numbering
+;# Performing: Copy Propagation
+;# Performing: Scalar Replacement
+;# Performing: Global Value Numbering
+;# Performing: Loop Invariant Code Motion
+;# Performing: Copy Propagation
+;# Performing: Expression Tree Height Reduction
+;# Performing: Basic Block Optimizations
+;# Performing: Useless Copy Removal
+;# Performing: Dead Variable Elimination
+;# Performing: Loop Test at End
+;# Backend hyperblock formation enabled.
+;# Scale -oa -quiet -arch trips2 -f scale.score.Scribble.doIfConversion=0 -I/home/troore/Projects/trips/ttools2/usr/include -Ofgjcamnpxnmpibudl -hb backend -f scale.backend.trips2.Trips2Machine.softwareFDIV=1 -f scale.backend.trips2.HyperblockFormation.unrollForLoops=0 -f scale.backend.trips2.HyperblockFormation.unrollLoops=1 -f scale.backend.trips2.HyperblockFormation.tailDuplicate=0 -f scale.backend.trips2.HyperblockFormation.peelLoops=1 -f scale.score.trans.URJ.inhibitWhileLoops=1 -inl 10 -AA1 -f scale.backend.trips2.Trips2Machine.tcconfigPath=/home/troore/Projects/trips/ttools2/etc/config/default m.c -dir ..
+.app-file "m.c"
+; BSS 
+	.global a
+	.comm	a, 4096, 4
+	.global b
+	.comm	b, 4096, 4
+	.global c
+	.comm	c, 4096, 4
+
+	.text	
+	.global	matrix_multiply
+;VARIABLE "i" size:4 $g75
+;VARIABLE "j" size:4 $g70
+;VARIABLE "_li0" size:8 $g77
+.bbegin matrix_multiply
+	read	$t0, $g1
+	addi	$t1, $t0, -32
+	sd	($t1), $t0 S[0]
+	movi	$t2, 0
+	bro	matrix_multiply$1		; loop 1
+	write	$g1, $t1
+	write	$g75, $t2
+.bend
+.bbegin matrix_multiply$1
+	read	$t0, $g75
+	movi	$t1, 0
+	slli	$t2, $t0, 5		; loop 1
+	bro	matrix_multiply$2		; loop 2
+	write	$g70, $t1
+	write	$g77, $t2
+.bend
+.bbegin matrix_multiply$2
+	read	$t0, $g70
+	read	$t1, $g77
+	add	$t2, $t1, $t0		; loop 2
+	entera	$t3, c		; loop 2
+	slli	$t4, $t2, 2		; loop 2
+	add	$t5, $t4, $t3		; loop 2
+	movi	$t6, 0
+	entera	$t7, b		; loop 2
+	slli	$t8, $t0, 2		; loop 2
+	add	$t9, $t8, $t7		; loop 2
+	entera	$t10, a		; loop 2
+	slli	$t11, $t1, 2		; loop 2
+	add	$t12, $t11, $t10		; loop 2
+	lw	$t13, ($t12) L[0]		; loop 2
+	fstod	$t14, $t13		; loop 2
+	lw	$t15, ($t9) L[1]		; loop 2
+	fstod	$t16, $t15		; loop 2
+	fmul	$t17, $t14, $t16		; loop 2
+	fadd	$t18, $t6, $t17		; loop 2
+	lw	$t19, 4($t12) L[2]		; loop 2
+	fstod	$t20, $t19		; loop 2
+	lw	$t21, 128($t9) L[3]		; loop 2
+	fstod	$t22, $t21		; loop 2
+	fmul	$t23, $t20, $t22		; loop 2
+	fadd	$t24, $t18, $t23		; loop 2
+	lw	$t25, 8($t12) L[4]		; loop 2
+	fstod	$t26, $t25		; loop 2
+	addi	$t27, $t9, 1
+	lw	$t28, 255($t27) L[5]		; loop 2
+	fstod	$t29, $t28		; loop 2
+	fmul	$t30, $t26, $t29		; loop 2
+	fadd	$t31, $t24, $t30		; loop 2
+	lw	$t32, 12($t12) L[6]		; loop 2
+	fstod	$t33, $t32		; loop 2
+	addi	$t34, $t9, 129
+	lw	$t35, 255($t34) L[7]		; loop 2
+	fstod	$t36, $t35		; loop 2
+	fmul	$t37, $t33, $t36		; loop 2
+	fadd	$t38, $t31, $t37		; loop 2
+	lw	$t39, 16($t12) L[8]		; loop 2
+	fstod	$t40, $t39		; loop 2
+	enter	$t41, 257
+	add	$t42, $t9, $t41
+	lw	$t43, 255($t42) L[9]		; loop 2
+	fstod	$t44, $t43		; loop 2
+	fmul	$t45, $t40, $t44		; loop 2
+	fadd	$t46, $t38, $t45		; loop 2
+	lw	$t47, 20($t12) L[10]		; loop 2
+	fstod	$t48, $t47		; loop 2
+	enter	$t49, 385
+	add	$t50, $t9, $t49
+	lw	$t51, 255($t50) L[11]		; loop 2
+	fstod	$t52, $t51		; loop 2
+	fmul	$t53, $t48, $t52		; loop 2
+	fadd	$t54, $t46, $t53		; loop 2
+	lw	$t55, 24($t12) L[12]		; loop 2
+	fstod	$t56, $t55		; loop 2
+	enter	$t57, 513
+	add	$t58, $t9, $t57
+	lw	$t59, 255($t58) L[13]		; loop 2
+	fstod	$t60, $t59		; loop 2
+	fmul	$t61, $t56, $t60		; loop 2
+	fadd	$t62, $t54, $t61		; loop 2
+	lw	$t63, 28($t12) L[14]		; loop 2
+	fstod	$t64, $t63		; loop 2
+	enter	$t65, 641
+	add	$t66, $t9, $t65
+	lw	$t67, 255($t66) L[15]		; loop 2
+	fstod	$t68, $t67		; loop 2
+	fmul	$t69, $t64, $t68		; loop 2
+	fadd	$t70, $t62, $t69		; loop 2
+	bro	matrix_multiply$3
+	write	$g71, $t9
+	write	$g72, $t12
+	write	$g73, $t5
+	write	$g74, $t70
+.bend
+.bbegin matrix_multiply$3
+	read	$t0, $g71
+	read	$t1, $g72
+	read	$t2, $g74
+	lw	$t3, 32($t1) L[0]		; loop 2
+	fstod	$t4, $t3		; loop 2
+	enter	$t5, 769
+	add	$t6, $t0, $t5
+	lw	$t7, 255($t6) L[1]		; loop 2
+	fstod	$t8, $t7		; loop 2
+	fmul	$t9, $t4, $t8		; loop 2
+	fadd	$t10, $t2, $t9		; loop 2
+	lw	$t11, 36($t1) L[2]		; loop 2
+	fstod	$t12, $t11		; loop 2
+	enter	$t13, 897
+	add	$t14, $t0, $t13
+	lw	$t15, 255($t14) L[3]		; loop 2
+	fstod	$t16, $t15		; loop 2
+	fmul	$t17, $t12, $t16		; loop 2
+	fadd	$t18, $t10, $t17		; loop 2
+	lw	$t19, 40($t1) L[4]		; loop 2
+	fstod	$t20, $t19		; loop 2
+	enter	$t21, 1025
+	add	$t22, $t0, $t21
+	lw	$t23, 255($t22) L[5]		; loop 2
+	fstod	$t24, $t23		; loop 2
+	fmul	$t25, $t20, $t24		; loop 2
+	fadd	$t26, $t18, $t25		; loop 2
+	lw	$t27, 44($t1) L[6]		; loop 2
+	fstod	$t28, $t27		; loop 2
+	enter	$t29, 1153
+	add	$t30, $t0, $t29
+	lw	$t31, 255($t30) L[7]		; loop 2
+	fstod	$t32, $t31		; loop 2
+	fmul	$t33, $t28, $t32		; loop 2
+	fadd	$t34, $t26, $t33		; loop 2
+	lw	$t35, 48($t1) L[8]		; loop 2
+	fstod	$t36, $t35		; loop 2
+	enter	$t37, 1281
+	add	$t38, $t0, $t37
+	lw	$t39, 255($t38) L[9]		; loop 2
+	fstod	$t40, $t39		; loop 2
+	fmul	$t41, $t36, $t40		; loop 2
+	fadd	$t42, $t34, $t41		; loop 2
+	lw	$t43, 52($t1) L[10]		; loop 2
+	fstod	$t44, $t43		; loop 2
+	enter	$t45, 1409
+	add	$t46, $t0, $t45
+	lw	$t47, 255($t46) L[11]		; loop 2
+	fstod	$t48, $t47		; loop 2
+	fmul	$t49, $t44, $t48		; loop 2
+	fadd	$t50, $t42, $t49		; loop 2
+	lw	$t51, 56($t1) L[12]		; loop 2
+	fstod	$t52, $t51		; loop 2
+	enter	$t53, 1537
+	add	$t54, $t0, $t53
+	lw	$t55, 255($t54) L[13]		; loop 2
+	fstod	$t56, $t55		; loop 2
+	fmul	$t57, $t52, $t56		; loop 2
+	fadd	$t58, $t50, $t57		; loop 2
+	bro	matrix_multiply$4
+	write	$g76, $t58
+.bend
+.bbegin matrix_multiply$4
+	read	$t0, $g71
+	read	$t1, $g72
+	read	$t2, $g76
+	lw	$t3, 60($t1) L[0]		; loop 2
+	fstod	$t4, $t3		; loop 2
+	enter	$t5, 1665
+	add	$t6, $t0, $t5
+	lw	$t7, 255($t6) L[1]		; loop 2
+	fstod	$t8, $t7		; loop 2
+	fmul	$t9, $t4, $t8		; loop 2
+	fadd	$t10, $t2, $t9		; loop 2
+	lw	$t11, 64($t1) L[2]		; loop 2
+	fstod	$t12, $t11		; loop 2
+	enter	$t13, 1793
+	add	$t14, $t0, $t13
+	lw	$t15, 255($t14) L[3]		; loop 2
+	fstod	$t16, $t15		; loop 2
+	fmul	$t17, $t12, $t16		; loop 2
+	fadd	$t18, $t10, $t17		; loop 2
+	lw	$t19, 68($t1) L[4]		; loop 2
+	fstod	$t20, $t19		; loop 2
+	enter	$t21, 1921
+	add	$t22, $t0, $t21
+	lw	$t23, 255($t22) L[5]		; loop 2
+	fstod	$t24, $t23		; loop 2
+	fmul	$t25, $t20, $t24		; loop 2
+	fadd	$t26, $t18, $t25		; loop 2
+	lw	$t27, 72($t1) L[6]		; loop 2
+	fstod	$t28, $t27		; loop 2
+	enter	$t29, 2049
+	add	$t30, $t0, $t29
+	lw	$t31, 255($t30) L[7]		; loop 2
+	fstod	$t32, $t31		; loop 2
+	fmul	$t33, $t28, $t32		; loop 2
+	fadd	$t34, $t26, $t33		; loop 2
+	lw	$t35, 76($t1) L[8]		; loop 2
+	fstod	$t36, $t35		; loop 2
+	enter	$t37, 2177
+	add	$t38, $t0, $t37
+	lw	$t39, 255($t38) L[9]		; loop 2
+	fstod	$t40, $t39		; loop 2
+	fmul	$t41, $t36, $t40		; loop 2
+	fadd	$t42, $t34, $t41		; loop 2
+	lw	$t43, 80($t1) L[10]		; loop 2
+	fstod	$t44, $t43		; loop 2
+	enter	$t45, 2305
+	add	$t46, $t0, $t45
+	lw	$t47, 255($t46) L[11]		; loop 2
+	fstod	$t48, $t47		; loop 2
+	fmul	$t49, $t44, $t48		; loop 2
+	fadd	$t50, $t42, $t49		; loop 2
+	lw	$t51, 84($t1) L[12]		; loop 2
+	fstod	$t52, $t51		; loop 2
+	enter	$t53, 2433
+	add	$t54, $t0, $t53
+	lw	$t55, 255($t54) L[13]		; loop 2
+	fstod	$t56, $t55		; loop 2
+	fmul	$t57, $t52, $t56		; loop 2
+	fadd	$t58, $t50, $t57		; loop 2
+	bro	matrix_multiply$5
+	write	$g74, $t58
+.bend
+.bbegin matrix_multiply$5
+	read	$t0, $g70
+	read	$t1, $g71
+	read	$t2, $g72
+	read	$t3, $g73
+	read	$t4, $g74
+	lw	$t5, 88($t2) L[0]		; loop 2
+	fstod	$t6, $t5		; loop 2
+	enter	$t7, 2561
+	add	$t8, $t1, $t7
+	lw	$t9, 255($t8) L[1]		; loop 2
+	fstod	$t10, $t9		; loop 2
+	fmul	$t11, $t6, $t10		; loop 2
+	fadd	$t12, $t4, $t11		; loop 2
+	lw	$t13, 92($t2) L[2]		; loop 2
+	fstod	$t14, $t13		; loop 2
+	enter	$t15, 2689
+	add	$t16, $t1, $t15
+	lw	$t17, 255($t16) L[3]		; loop 2
+	fstod	$t18, $t17		; loop 2
+	fmul	$t19, $t14, $t18		; loop 2
+	fadd	$t20, $t12, $t19		; loop 2
+	lw	$t21, 96($t2) L[4]		; loop 2
+	fstod	$t22, $t21		; loop 2
+	enter	$t23, 2817
+	add	$t24, $t1, $t23
+	lw	$t25, 255($t24) L[5]		; loop 2
+	fstod	$t26, $t25		; loop 2
+	fmul	$t27, $t22, $t26		; loop 2
+	fadd	$t28, $t20, $t27		; loop 2
+	lw	$t29, 100($t2) L[6]		; loop 2
+	fstod	$t30, $t29		; loop 2
+	enter	$t31, 2945
+	add	$t32, $t1, $t31
+	lw	$t33, 255($t32) L[7]		; loop 2
+	fstod	$t34, $t33		; loop 2
+	fmul	$t35, $t30, $t34		; loop 2
+	fadd	$t36, $t28, $t35		; loop 2
+	lw	$t37, 104($t2) L[8]		; loop 2
+	fstod	$t38, $t37		; loop 2
+	enter	$t39, 3073
+	add	$t40, $t1, $t39
+	lw	$t41, 255($t40) L[9]		; loop 2
+	fstod	$t42, $t41		; loop 2
+	fmul	$t43, $t38, $t42		; loop 2
+	fadd	$t44, $t36, $t43		; loop 2
+	lw	$t45, 108($t2) L[10]		; loop 2
+	fstod	$t46, $t45		; loop 2
+	enter	$t47, 3201
+	add	$t48, $t1, $t47
+	lw	$t49, 255($t48) L[11]		; loop 2
+	fstod	$t50, $t49		; loop 2
+	fmul	$t51, $t46, $t50		; loop 2
+	fadd	$t52, $t44, $t51		; loop 2
+	lw	$t53, 112($t2) L[12]		; loop 2
+	fstod	$t54, $t53		; loop 2
+	enter	$t55, 3329
+	add	$t56, $t1, $t55
+	lw	$t57, 255($t56) L[13]		; loop 2
+	fstod	$t58, $t57		; loop 2
+	fmul	$t59, $t54, $t58		; loop 2
+	fadd	$t60, $t52, $t59		; loop 2
+	lw	$t61, 116($t2) L[14]		; loop 2
+	fstod	$t62, $t61		; loop 2
+	enter	$t63, 3457
+	add	$t64, $t1, $t63
+	lw	$t65, 255($t64) L[15]		; loop 2
+	fstod	$t66, $t65		; loop 2
+	fmul	$t67, $t62, $t66		; loop 2
+	fadd	$t68, $t60, $t67		; loop 2
+	lw	$t69, 120($t2) L[16]		; loop 2
+	fstod	$t70, $t69		; loop 2
+	enter	$t71, 3585
+	add	$t72, $t1, $t71
+	lw	$t73, 255($t72) L[17]		; loop 2
+	fstod	$t74, $t73		; loop 2
+	fmul	$t75, $t70, $t74		; loop 2
+	fadd	$t76, $t68, $t75		; loop 2
+	lw	$t77, 124($t2) L[18]		; loop 2
+	fstod	$t78, $t77		; loop 2
+	enter	$t79, 3713
+	add	$t80, $t1, $t79
+	lw	$t81, 255($t80) L[19]		; loop 2
+	fstod	$t82, $t81		; loop 2
+	fmul	$t83, $t78, $t82		; loop 2
+	fadd	$t84, $t76, $t83		; loop 2
+	fdtos	$t85, $t84		; loop 2
+	sw	($t3), $t85 S[20]		; loop 2
+	addi	$t86, $t0, 1		; loop 2
+	extsw	$t87, $t86		; loop 2
+	tlti	$p88, $t87, 32		; loop 2
+	bro_t<$p88>	matrix_multiply$2		; loop 2
+	bro_f<$p88>	matrix_multiply$6		; loop 2
+	write	$g70, $t87
+.bend
+.bbegin matrix_multiply$6
+	read	$t0, $g75
+	addi	$t1, $t0, 1		; loop 1
+	extsw	$t2, $t1		; loop 1
+	tlti	$p3, $t2, 32		; loop 1
+	bro_t<$p3>	matrix_multiply$1		; loop 1
+	bro_f<$p3>	matrix_multiply$7		; loop 1
+	write	$g75, $t2
+.bend
+.bbegin matrix_multiply$7
+	read	$t0, $g1
+	read	$t1, $g2
+	addi	$t2, $t0, 32
+	ret	$t1
+	write	$g1, $t2
+.bend
+
+	.global	main
+;VARIABLE "i" size:4 $g13
+;VARIABLE "j" size:4 $g12
+;VARIABLE "_cs2" size:4 $g15
+;VARIABLE "_cs4" size:8 $g14
+;VARIABLE "_cs5" size:4 $g15
+;VARIABLE "_cs7" size:8 $g14
+.bbegin main
+	read	$t0, $g1
+	read	$t1, $g2
+	read	$t2, $g12
+	read	$t3, $g13
+	read	$t4, $g14
+	read	$t5, $g15
+	addi	$t6, $t0, -128
+	sd	($t6), $t0 S[0]
+	sd	8($t6), $t1 S[1]
+	sd	-32($t0), $t2 S[2]
+	sd	-24($t0), $t3 S[3]
+	sd	-16($t0), $t4 S[4]
+	sd	-8($t0), $t5 S[5]
+	movi	$t7, 0
+	enterb	$t8, main$1
+	callo	time
+	write	$g1, $t6
+	write	$g2, $t8
+	write	$g3, $t7
+.bend
+.bbegin main$1
+	read	$t0, $g3
+	extuw	$t1, $t0
+	enterb	$t2, main$2
+	callo	srand
+	write	$g2, $t2
+	write	$g3, $t1
+.bend
+.bbegin main$2
+	movi	$t0, 0
+	bro	main$3		; loop 1
+	write	$g13, $t0
+.bend
+.bbegin main$3
+	movi	$t0, 0
+	bro	main$4		; loop 2
+	write	$g12, $t0
+.bend
+.bbegin main$4
+	enterb	$t0, main$5		; loop 2
+	callo	rand		; loop 2
+	write	$g2, $t0
+.bend
+.bbegin main$5
+	read	$t0, $g3
+	enterb	$t1, main$6		; loop 2
+	callo	rand		; loop 2
+	write	$g2, $t1
+	write	$g15, $t0
+.bend
+.bbegin main$6
+	read	$t0, $g3
+	read	$t1, $g12
+	read	$t2, $g13
+	read	$t3, $g15
+	slli	$t4, $t2, 5		; loop 2
+	add	$t5, $t4, $t1		; loop 2
+	entera	$t6, a		; loop 2
+	slli	$t7, $t5, 2		; loop 2
+	add	$t8, $t7, $t6		; loop 2
+	fitod	$t9, $t3		; loop 2
+	fitod	$t10, $t0		; loop 2
+	enterb	$t11, main$7		; loop 2
+	callo	_float64_div		; loop 2
+	write	$g2, $t11
+	write	$g3, $t9
+	write	$g4, $t10
+	write	$g14, $t8
+.bend
+.bbegin main$7
+	read	$t0, $g3
+	read	$t1, $g14
+	fdtos	$t2, $t0		; loop 2
+	sw	($t1), $t2 S[0]		; loop 2
+	enterb	$t3, main$8		; loop 2
+	callo	rand		; loop 2
+	write	$g2, $t3
+.bend
+.bbegin main$8
+	read	$t0, $g3
+	enterb	$t1, main$9		; loop 2
+	callo	rand		; loop 2
+	write	$g2, $t1
+	write	$g15, $t0
+.bend
+.bbegin main$9
+	read	$t0, $g3
+	read	$t1, $g12
+	read	$t2, $g13
+	read	$t3, $g15
+	slli	$t4, $t1, 5		; loop 2
+	add	$t5, $t4, $t2		; loop 2
+	entera	$t6, b		; loop 2
+	slli	$t7, $t5, 2		; loop 2
+	add	$t8, $t7, $t6		; loop 2
+	fitod	$t9, $t3		; loop 2
+	fitod	$t10, $t0		; loop 2
+	enterb	$t11, main$10		; loop 2
+	callo	_float64_div		; loop 2
+	write	$g2, $t11
+	write	$g3, $t9
+	write	$g4, $t10
+	write	$g14, $t8
+.bend
+.bbegin main$10
+	read	$t0, $g3
+	read	$t1, $g12
+	read	$t2, $g14
+	fdtos	$t3, $t0		; loop 2
+	sw	($t2), $t3 S[0]		; loop 2
+	addi	$t4, $t1, 1		; loop 2
+	extsw	$t5, $t4		; loop 2
+	tlti	$p6, $t5, 32		; loop 2
+	bro_t<$p6>	main$4		; loop 2
+	bro_f<$p6>	main$11		; loop 2
+	write	$g12, $t5
+.bend
+.bbegin main$11
+	read	$t0, $g13
+	addi	$t1, $t0, 1		; loop 1
+	extsw	$t2, $t1		; loop 1
+	tlti	$p3, $t2, 32		; loop 1
+	bro_t<$p3>	main$3		; loop 1
+	bro_f<$p3>	main$12		; loop 1
+	write	$g13, $t2
+.bend
+.bbegin main$12
+	enterb	$t0, main$13
+	callo	matrix_multiply
+	write	$g2, $t0
+.bend
+.bbegin main$13
+	read	$t0, $g1
+	movi	$t1, 0
+	ld	$t2, 8($t0) L[0]
+	addi	$t3, $t0, 128
+	ld	$t4, -32($t3) L[1]
+	ld	$t5, -24($t3) L[2]
+	ld	$t6, -16($t3) L[3]
+	ld	$t7, -8($t3) L[4]
+	ret	$t2
+	write	$g1, $t3
+	write	$g2, $t2
+	write	$g3, $t1
+	write	$g12, $t4
+	write	$g13, $t5
+	write	$g14, $t6
+	write	$g15, $t7
+.bend
+
+
+
+

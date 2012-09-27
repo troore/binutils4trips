@@ -1,0 +1,614 @@
+
+;	m.o:     file format elf64-trips
+
+;	Disassembly of section .text:
+
+; 0000000000000000
+.global matrix_multiply
+.bbegin matrix_multiply ; bt1
+R[1]    read    G[1]    N[1,0]   N[4,1]  
+N[0]    mov	N[4,0]  W[1]  
+N[1]    addi	-32	N[0,0]  
+N[4]    sd	S[0]  	
+N[5]    bro	B[0]	0x94	
+N[11]   movi	0x00	W[3]  
+W[1]    write   G[1]  
+W[3]    write   G[75] 
+.bend
+
+
+; 0000000000000100
+.bbegin matrix_multiply$1 ; bt1
+R[3]    read    G[75]   N[11,0] 
+N[5]    bro	B[0]	0x94	
+N[6]    movi	0x00	W[2]  
+N[11]   slli	0x05	W[1]  
+W[1]    write   G[77] 
+W[2]    write   G[70] 
+.bend
+
+
+; 0000000000000200
+.bbegin matrix_multiply$2 ; bt3
+R[1]    read    G[77]   N[20,0]  N[13,0] 
+R[2]    read    G[70]   N[20,1]  N[6,0]  
+N[0]    genu	0x181	N[67,1] 
+N[1]    addi	0x81	N[17,0] 
+N[2]    mov	N[51,0] W[3]  
+N[3]    genu	0x1ce	N[19,0] 
+N[4]    genu	0x101	N[52,1] 
+N[5]    genu	0x201	N[33,1] 
+N[6]    slli	0x02	N[22,0] 
+N[7]    genu	0x1ce	N[35,0] 
+N[8]    genu	0x1ce	N[24,0] 
+N[9]    mov	N[25,0] W[0]  
+N[10]   fmul	N[26,1] 
+N[11]   add	N[27,0] N[9,0]  
+N[12]   genu	0x281	N[63,1] 
+N[13]   slli	0x02	N[11,0] 
+N[14]   movi	0x00	N[26,0] 
+N[15]   mov3	N[31,0] N[30,0] N[47,0] 
+N[16]   bro	B[0]	0xc0	
+N[17]   lw	L[7]  	0xff	N[65,0] 
+N[18]   lw	L[3]  	0x80	N[34,0] 
+N[19]   app	0x1ce	N[11,1] 
+N[20]   add	N[36,0] 
+N[21]   mov3	N[37,0] N[1,0]  N[52,0] 
+N[22]   add	N[38,0] N[2,0]  
+N[23]   lw	L[0]  	N[55,0] 
+N[24]   app	0x1ce	N[40,1] 
+N[25]   mov3	N[56,0] N[41,0] N[57,0] 
+N[26]   fadd	N[42,0] 
+N[27]   mov	N[43,0] N[15,0] 
+N[29]   fstod	N[94,0] 
+N[30]   lw	L[6]  	0x0c	N[46,0] 
+N[31]   lw	L[4]  	0x08	N[79,0] 
+N[33]   add	N[49,0] 
+N[34]   fstod	N[87,1] 
+N[35]   app	0x1ce	N[22,1] 
+N[36]   slli	0x02	N[40,0] 
+N[37]   addi	0x01	N[53,0] 
+N[38]   mov	N[54,0] N[21,0] 
+N[39]   lw	L[2]  	0x04	N[71,0] 
+N[40]   add	W[1]  
+N[41]   lw	L[12] 	0x18	N[73,0] 
+N[42]   fadd	N[58,0] 
+N[43]   mov	N[23,0] N[39,0] 
+N[46]   fstod	N[66,0] 
+N[47]   lw	L[8]  	0x10	N[62,0] 
+N[49]   lw	L[13] 	0xff	N[81,0] 
+N[50]   fstod	N[82,1] 
+N[51]   mov3	N[67,0] N[33,0] N[63,0] 
+N[52]   add	N[68,0] 
+N[53]   lw	L[5]  	0xff	N[69,0] 
+N[54]   mov	N[70,0] N[18,0] 
+N[55]   fstod	N[10,0] 
+N[56]   lw	L[10] 	0x14	N[72,0] 
+N[57]   lw	L[14] 	0x1c	N[29,0] 
+N[58]   fadd	N[74,0] 
+N[59]   fadd	N[75,0] 
+N[62]   fstod	N[88,0] 
+N[63]   add	N[95,0] 
+N[65]   fstod	N[66,1] 
+N[66]   fmul	N[74,1] 
+N[67]   add	N[83,0] 
+N[68]   lw	L[9]  	0xff	N[84,0] 
+N[69]   fstod	N[89,1] 
+N[70]   lw	L[1]  	N[86,0] 
+N[71]   fstod	N[87,0] 
+N[72]   fstod	N[82,0] 
+N[73]   fstod	N[85,0] 
+N[74]   fadd	N[90,0] 
+N[75]   fadd	N[91,0] 
+N[78]   fstod	N[94,1] 
+N[79]   fstod	N[89,0] 
+N[81]   fstod	N[85,1] 
+N[82]   fmul	N[59,1] 
+N[83]   lw	L[11] 	0xff	N[50,0] 
+N[84]   fstod	N[88,1] 
+N[85]   fmul	N[75,1] 
+N[86]   fstod	N[10,1] 
+N[87]   fmul	N[42,1] 
+N[88]   fmul	N[90,1] 
+N[89]   fmul	N[58,1] 
+N[90]   fadd	N[59,0] 
+N[91]   fadd	W[2]  
+N[94]   fmul	N[91,1] 
+N[95]   lw	L[15] 	0xff	N[78,0] 
+W[0]    write   G[72] 
+W[1]    write   G[73] 
+W[2]    write   G[74] 
+W[3]    write   G[71] 
+.bend
+
+
+; 0000000000000400
+.bbegin matrix_multiply$3 ; bt2
+R[0]    read    G[72]   N[24,0]  N[9,0]  
+R[2]    read    G[74]   N[10,0] 
+R[3]    read    G[71]   N[7,0]   N[11,0] 
+N[0]    lw	L[8]  	0x30	N[32,0] 
+N[1]    genu	0x481	N[3,1]  
+N[2]    genu	0x301	N[23,1] 
+N[3]    add	N[19,0] 
+N[4]    genu	0x581	N[37,1] 
+N[5]    genu	0x501	N[22,1] 
+N[6]    mov3	N[22,0] N[37,0] N[18,0] 
+N[7]    mov	N[23,0] N[6,0]  
+N[8]    genu	0x601	N[18,1] 
+N[9]    mov3	N[25,0] N[29,0] N[21,0] 
+N[10]   fadd	N[26,0] 
+N[11]   mov3	N[27,0] N[15,0] N[3,0]  
+N[12]   genu	0x401	N[15,1] 
+N[13]   genu	0x381	N[27,1] 
+N[14]   fmul	N[42,1] 
+N[15]   add	N[31,0] 
+N[16]   lw	L[12] 	0x38	N[48,0] 
+N[17]   lw	L[13] 	0xff	N[33,0] 
+N[18]   add	N[17,0] 
+N[19]   lw	L[7]  	0xff	N[35,0] 
+N[20]   mov3	N[0,0]  N[36,0] N[16,0] 
+N[21]   lw	L[6]  	0x2c	N[53,0] 
+N[22]   add	N[38,0] 
+N[23]   add	N[39,0] 
+N[24]   mov	N[40,0] N[20,0] 
+N[25]   lw	L[2]  	0x24	N[41,0] 
+N[26]   fadd	N[42,0] 
+N[27]   add	N[43,0] 
+N[28]   bro	B[0]	0xf0	
+N[29]   lw	L[4]  	0x28	N[45,0] 
+N[30]   fadd	N[46,0] 
+N[31]   lw	L[5]  	0xff	N[47,0] 
+N[32]   fstod	N[50,0] 
+N[33]   fstod	N[49,1] 
+N[34]   fstod	N[50,1] 
+N[35]   fstod	N[51,1] 
+N[36]   lw	L[10] 	0x34	N[52,0] 
+N[37]   add	N[57,0] 
+N[38]   lw	L[9]  	0xff	N[34,0] 
+N[39]   lw	L[1]  	0xff	N[55,0] 
+N[40]   lw	L[0]  	0x20	N[56,0] 
+N[41]   fstod	N[63,0] 
+N[42]   fadd	N[58,0] 
+N[43]   lw	L[3]  	0xff	N[59,0] 
+N[44]   fmul	N[46,1] 
+N[45]   fstod	N[14,0] 
+N[46]   fadd	N[62,0] 
+N[47]   fstod	N[14,1] 
+N[48]   fstod	N[49,0] 
+N[49]   fmul	N[62,1] 
+N[50]   fmul	N[30,1] 
+N[51]   fmul	N[58,1] 
+N[52]   fstod	N[44,0] 
+N[53]   fstod	N[51,0] 
+N[54]   fmul	N[10,1] 
+N[55]   fstod	N[54,1] 
+N[56]   fstod	N[54,0] 
+N[57]   lw	L[11] 	0xff	N[61,0] 
+N[58]   fadd	N[30,0] 
+N[59]   fstod	N[63,1] 
+N[61]   fstod	N[44,1] 
+N[62]   fadd	W[0]  
+N[63]   fmul	N[26,1] 
+W[0]    write   G[76] 
+.bend
+
+
+; 0000000000000580
+.bbegin matrix_multiply$4 ; bt2
+R[0]    read    G[72]   N[8,0]   N[10,0] 
+R[3]    read    G[71]   N[7,0]   N[27,0] 
+R[4]    read    G[76]   N[12,0] 
+N[0]    lw	L[10] 	0x50	N[48,0] 
+N[1]    add	N[17,0] 
+N[2]    genu	0x781	N[3,1]  
+N[3]    add	N[19,0] 
+N[4]    mov3	N[20,0] N[0,0]  N[16,0] 
+N[5]    mov3	N[21,0] N[1,0]  N[36,0] 
+N[6]    lw	L[6]  	0x48	N[18,0] 
+N[7]    mov	N[23,0] N[5,0]  
+N[8]    mov	N[9,0]  N[4,0]  
+N[9]    lw	L[0]  	0x3c	N[25,0] 
+N[10]   mov3	N[43,0] N[26,0] N[6,0]  
+N[11]   genu	0x681	N[23,1] 
+N[12]   fadd	N[28,0] 
+N[13]   genu	0x881	N[21,1] 
+N[14]   genu	0x801	N[42,1] 
+N[15]   genu	0x701	N[31,1] 
+N[16]   lw	L[12] 	0x54	N[61,0] 
+N[17]   lw	L[11] 	0xff	N[33,0] 
+N[18]   fstod	N[54,0] 
+N[19]   lw	L[5]  	0xff	N[35,0] 
+N[20]   lw	L[8]  	0x4c	N[52,0] 
+N[21]   add	N[37,0] 
+N[22]   lw	L[7]  	0xff	N[38,0] 
+N[23]   add	N[39,0] 
+N[24]   fadd	N[40,0] 
+N[25]   fstod	N[53,0] 
+N[26]   lw	L[4]  	0x44	N[58,0] 
+N[27]   mov3	N[31,0] N[3,0]  N[42,0] 
+N[28]   fadd	N[44,0] 
+N[29]   genu	0x901	N[1,1]  
+N[30]   genu	0x981	N[36,1] 
+N[31]   add	N[47,0] 
+N[32]   lw	L[13] 	0xff	N[34,0] 
+N[33]   fstod	N[49,1] 
+N[34]   fstod	N[50,1] 
+N[35]   fstod	N[51,1] 
+N[36]   add	N[32,0] 
+N[37]   lw	L[9]  	0xff	N[41,0] 
+N[38]   fstod	N[54,1] 
+N[39]   lw	L[1]  	0xff	N[55,0] 
+N[40]   fadd	N[56,0] 
+N[41]   fstod	N[57,1] 
+N[42]   add	N[22,0] 
+N[43]   lw	L[2]  	0x40	N[59,0] 
+N[44]   fadd	N[60,0] 
+N[45]   bro	B[0]	0x134	
+N[46]   fstod	N[63,1] 
+N[47]   lw	L[3]  	0xff	N[46,0] 
+N[48]   fstod	N[49,0] 
+N[49]   fmul	N[40,1] 
+N[50]   fmul	N[56,1] 
+N[51]   fmul	N[44,1] 
+N[52]   fstod	N[57,0] 
+N[53]   fmul	N[12,1] 
+N[54]   fmul	N[60,1] 
+N[55]   fstod	N[53,1] 
+N[56]   fadd	W[2]  
+N[57]   fmul	N[24,1] 
+N[58]   fstod	N[51,0] 
+N[59]   fstod	N[63,0] 
+N[60]   fadd	N[24,0] 
+N[61]   fstod	N[50,0] 
+N[63]   fmul	N[28,1] 
+W[2]    write   G[74] 
+.bend
+
+
+; 0000000000000700
+.bbegin matrix_multiply$5 ; bt3
+R[0]    read    G[72]   N[8,0]   N[20,0] 
+R[1]    read    G[73]   N[86,0] 
+R[2]    read    G[70]   N[2,0]  
+R[3]    read    G[71]   N[7,0]   N[19,0] 
+R[6]    read    G[74]   N[10,0] 
+N[0]    genu	0xb81	N[67,1] 
+N[1]    genu	0xb01	N[34,1] 
+N[2]    addi	0x01	N[18,0] 
+N[3]    genu	0xa01	N[23,1] 
+N[4]    genu	0xd01	N[37,1] 
+N[5]    lw	L[2]  	0x5c	N[53,0] 
+N[6]    fadd	N[22,0] 
+N[7]    mov3	N[23,0] N[27,0] N[31,0] 
+N[8]    mov3	N[9,0]  N[24,0] N[60,0] 
+N[9]    lw	L[0]  	0x58	N[73,0] 
+N[10]   fadd	N[26,0] 
+N[11]   genu	0xa81	N[35,1] 
+N[12]   genu	0xd81	N[14,1] 
+N[13]   genu	0xc81	N[41,1] 
+N[14]   add	N[30,0] 
+N[15]   genu	0xc01	N[43,1] 
+N[16]   tlti	0x20	N[32,0] 
+N[17]   lw	L[13] 	0xff	N[65,0] 
+N[18]   extsw	N[16,0] W[2]  
+N[19]   mov3	N[35,0] N[34,0] N[67,0] 
+N[20]   mov3	N[5,0]  N[36,0] N[21,0] 
+N[21]   lw	L[6]  	0x64	N[69,0] 
+N[22]   fadd	N[38,0] 
+N[23]   add	N[39,0] 
+N[24]   mov3	N[25,0] N[40,0] N[52,0] 
+N[25]   lw	L[8]  	0x68	N[89,0] 
+N[26]   fadd	N[42,0] 
+N[27]   mov3	N[43,0] N[41,0] N[37,0] 
+N[28]   genu	0xe01	N[47,1] 
+N[29]   lw	L[14] 	0x74	N[61,0] 
+N[30]   lw	L[15] 	0xff	N[79,0] 
+N[31]   mov3	N[14,0] N[47,0] N[45,0] 
+N[32]   mov	N[48,p] N[64,p] 
+N[33]   lw	L[19] 	0xff	N[81,0] 
+N[34]   add	N[50,0] 
+N[35]   add	N[51,0] 
+N[36]   lw	L[4]  	0x60	N[68,0] 
+N[37]   add	N[17,0] 
+N[38]   fadd	N[54,0] 
+N[39]   lw	L[1]  	0xff	N[71,0] 
+N[40]   lw	L[10] 	0x6c	N[72,0] 
+N[41]   add	N[57,0] 
+N[42]   fadd	N[58,0] 
+N[43]   add	N[59,0] 
+N[44]   genu	0xe81	N[45,1] 
+N[45]   add	N[33,0] 
+N[46]   lw	L[17] 	0xff	N[78,0] 
+N[47]   add	N[46,0] 
+N[48]   bro_t	B[0]	0x140	
+N[49]   fmul	N[42,1] 
+N[50]   lw	L[5]  	0xff	N[66,0] 
+N[51]   lw	L[3]  	0xff	N[83,0] 
+N[52]   lw	L[12] 	0x70	N[84,0] 
+N[53]   fstod	N[82,0] 
+N[54]   fadd	N[70,0] 
+N[55]   lw	L[7]  	0xff	N[87,0] 
+N[56]   lw	L[18] 	0x7c	N[88,0] 
+N[57]   lw	L[11] 	0xff	N[77,0] 
+N[58]   fadd	N[74,0] 
+N[59]   lw	L[9]  	0xff	N[63,0] 
+N[60]   mov3	N[29,0] N[76,0] N[56,0] 
+N[61]   fstod	N[95,0] 
+N[62]   fmul	N[74,1] 
+N[63]   fstod	N[62,1] 
+N[64]   bro_f	B[1]	0x180	
+N[65]   fstod	N[85,1] 
+N[66]   fstod	N[49,1] 
+N[67]   add	N[55,0] 
+N[68]   fstod	N[49,0] 
+N[69]   fstod	N[91,0] 
+N[70]   fdtos	N[86,1] 
+N[71]   fstod	N[75,1] 
+N[72]   fstod	N[93,0] 
+N[73]   fstod	N[75,0] 
+N[74]   fadd	N[90,0] 
+N[75]   fmul	N[10,1] 
+N[76]   lw	L[16] 	0x78	N[92,0] 
+N[77]   fstod	N[93,1] 
+N[78]   fstod	N[94,1] 
+N[79]   fstod	N[95,1] 
+N[80]   fmul	N[54,1] 
+N[81]   fstod	N[80,1] 
+N[82]   fmul	N[26,1] 
+N[83]   fstod	N[82,1] 
+N[84]   fstod	N[85,0] 
+N[85]   fmul	N[6,1]  
+N[86]   sw	S[20] 	
+N[87]   fstod	N[91,1] 
+N[88]   fstod	N[80,0] 
+N[89]   fstod	N[62,0] 
+N[90]   fadd	N[6,0]  
+N[91]   fmul	N[58,1] 
+N[92]   fstod	N[94,0] 
+N[93]   fmul	N[90,1] 
+N[94]   fmul	N[38,1] 
+N[95]   fmul	N[22,1] 
+W[2]    write   G[70] 
+.bend
+
+
+; 0000000000000900
+.bbegin matrix_multiply$6 ; bt1
+R[3]    read    G[75]   N[10,0] 
+N[0]    bro_f	B[1]	0x80	
+N[1]    mov	N[2,p]  N[0,p]  
+N[2]    bro_t	B[0]	0x88	
+N[5]    tlti	0x20	N[1,0]  
+N[6]    extsw	N[5,0]  W[3]  
+N[10]   addi	0x01	N[6,0]  
+W[3]    write   G[75] 
+.bend
+
+
+; 0000000000000a00
+.bbegin matrix_multiply$7 ; bt1
+R[1]    read    G[1]    N[1,0]  
+R[2]    read    G[2]    N[2,0]  
+N[1]    addi	0x20	W[1]  
+N[2]    ret	B[0]	
+W[1]    write   G[1]  
+.bend
+
+
+; 0000000000000b00
+.global main
+.bbegin main ; bt1
+R[0]    read    G[12]   N[10,1] 
+R[1]    read    G[1]    N[7,0]   N[1,0]  
+R[2]    read    G[2]    N[9,1]  
+R[3]    read    G[15]   N[3,1]  
+R[5]    read    G[13]   N[8,1]  
+R[6]    read    G[14]   N[2,1]  
+N[0]    addi	-128	N[4,0]  
+N[1]    mov	N[0,0]  N[3,0]  
+N[2]    sd	S[4]  	-16	
+N[3]    sd	S[5]  	-8	
+N[4]    mov	N[5,0]  W[1]  
+N[5]    mov	N[6,0]  N[9,0]  
+N[6]    sd	S[0]  	
+N[7]    mov	N[11,0] N[6,1]  
+N[8]    sd	S[3]  	-24	
+N[9]    sd	S[1]  	0x08	
+N[10]   sd	S[2]  	-32	
+N[11]   mov3	N[2,0]  N[8,0]  N[10,0] 
+N[12]   callo	B[0]	0xb0	
+N[13]   app	0x1ce	W[2]  
+N[14]   genu	0x1ce	N[13,0] 
+N[15]   movi	0x00	W[3]  
+W[1]    write   G[1]  
+W[2]    write   G[2]  
+W[3]    write   G[3]  
+.bend
+
+
+; 0000000000000c00
+.bbegin main$1 ; bt1
+R[3]    read    G[3]    N[7,0]  
+N[2]    genu	0x1ce	N[3,0]  
+N[3]    app	0x1ce	W[2]  
+N[5]    callo	B[0]	0x94	
+N[7]    extuw	W[3]  
+W[2]    write   G[2]  
+W[3]    write   G[3]  
+.bend
+
+
+; 0000000000000d00
+.bbegin main$2 ; bt1
+N[5]    bro	B[0]	0x94	
+N[13]   movi	0x00	W[1]  
+W[1]    write   G[13] 
+.bend
+
+
+; 0000000000000e00
+.bbegin main$3 ; bt1
+N[5]    bro	B[0]	0x94	
+N[12]   movi	0x00	W[0]  
+W[0]    write   G[12] 
+.bend
+
+
+; 0000000000000f00
+.bbegin main$4 ; bt1
+N[2]    genu	0x1ce	N[3,0]  
+N[3]    app	0x1ce	W[2]  
+N[5]    callo	B[0]	0x94	
+W[2]    write   G[2]  
+.bend
+
+
+; 0000000000001000
+.bbegin main$5 ; bt1
+R[3]    read    G[3]    N[3,0]  
+N[1]    app	0x1ce	W[2]  
+N[2]    genu	0x1ce	N[1,0]  
+N[3]    mov	W[3]  
+N[5]    callo	B[0]	0x94	
+W[2]    write   G[2]  
+W[3]    write   G[15] 
+.bend
+
+
+; 0000000000001100
+.bbegin main$6 ; bt1
+R[0]    read    G[12]   N[14,1] 
+R[1]    read    G[13]   N[13,0] 
+R[3]    read    G[3]    N[3,0]  
+R[7]    read    G[15]   N[15,0] 
+N[1]    app	0x1ce	W[2]  
+N[2]    genu	0x1ce	N[1,0]  
+N[3]    fitod	W[0]  
+N[5]    callo	B[0]	0x94	
+N[6]    genu	0x1ce	N[7,0]  
+N[7]    app	0x1ce	N[11,1] 
+N[10]   slli	0x02	N[11,0] 
+N[11]   add	W[6]  
+N[13]   slli	0x05	N[14,0] 
+N[14]   add	N[10,0] 
+N[15]   fitod	W[3]  
+W[0]    write   G[4]  
+W[2]    write   G[2]  
+W[3]    write   G[3]  
+W[6]    write   G[14] 
+.bend
+
+
+; 0000000000001200
+.bbegin main$7 ; bt1
+R[2]    read    G[14]   N[2,0]  
+R[3]    read    G[3]    N[3,0]  
+N[0]    app	0x1ce	W[2]  
+N[1]    genu	0x1ce	N[0,0]  
+N[2]    sw	S[0]  	
+N[3]    fdtos	N[2,1]  
+N[5]    callo	B[0]	0x94	
+W[2]    write   G[2]  
+.bend
+
+
+; 0000000000001300
+.bbegin main$8 ; bt1
+R[3]    read    G[3]    N[3,0]  
+N[1]    app	0x1ce	W[2]  
+N[2]    genu	0x1ce	N[1,0]  
+N[3]    mov	W[3]  
+N[5]    callo	B[0]	0x94	
+W[2]    write   G[2]  
+W[3]    write   G[15] 
+.bend
+
+
+; 0000000000001400
+.bbegin main$9 ; bt1
+R[0]    read    G[12]   N[12,0] 
+R[1]    read    G[13]   N[13,1] 
+R[3]    read    G[3]    N[3,0]  
+R[7]    read    G[15]   N[15,0] 
+N[1]    app	0x1ce	W[2]  
+N[2]    genu	0x1ce	N[1,0]  
+N[3]    fitod	W[0]  
+N[5]    callo	B[0]	0x94	
+N[6]    add	W[6]  
+N[10]   genu	0x1ce	N[11,0] 
+N[11]   app	0x1ce	N[6,1]  
+N[12]   slli	0x05	N[13,0] 
+N[13]   add	N[14,0] 
+N[14]   slli	0x02	N[6,0]  
+N[15]   fitod	W[3]  
+W[0]    write   G[4]  
+W[2]    write   G[2]  
+W[3]    write   G[3]  
+W[6]    write   G[14] 
+.bend
+
+
+; 0000000000001500
+.bbegin main$10 ; bt1
+R[0]    read    G[12]   N[12,0] 
+R[2]    read    G[14]   N[2,0]  
+R[3]    read    G[3]    N[3,0]  
+N[1]    bro_t	B[0]	0x84	
+N[2]    sw	S[0]  	
+N[3]    fdtos	N[2,1]  
+N[4]    tlti	0x20	N[5,0]  
+N[5]    mov	N[1,p]  N[6,p]  
+N[6]    bro_f	B[1]	0x98	
+N[8]    extsw	N[4,0]  W[0]  
+N[12]   addi	0x01	N[8,0]  
+W[0]    write   G[12] 
+.bend
+
+
+; 0000000000001600
+.bbegin main$11 ; bt1
+R[1]    read    G[13]   N[13,0] 
+N[0]    bro_f	B[1]	0x80	
+N[1]    mov	N[2,p]  N[0,p]  
+N[2]    bro_t	B[0]	0x88	
+N[5]    tlti	0x20	N[1,0]  
+N[9]    extsw	N[5,0]  W[1]  
+N[13]   addi	0x01	N[9,0]  
+W[1]    write   G[13] 
+.bend
+
+
+; 0000000000001700
+.bbegin main$12 ; bt1
+N[2]    genu	0x1ce	N[3,0]  
+N[3]    app	0x1ce	W[2]  
+N[5]    callo	B[0]	0x94	
+W[2]    write   G[2]  
+.bend
+
+
+; 0000000000001800
+.bbegin main$13 ; bt1
+R[1]    read    G[1]    N[0,0]   N[1,0]  
+N[0]    ld	L[0]  	0x08	N[4,0]  
+N[1]    addi	0x80	N[2,0]  
+N[2]    mov	N[3,0]  N[6,0]  
+N[3]    mov	N[11,0] W[1]  
+N[4]    mov	N[8,0]  W[2]  
+N[5]    ld	L[4]  	-8	W[7]  
+N[6]    mov3	N[7,0]  N[10,0] N[5,0]  
+N[7]    ld	L[2]  	-24	W[5]  
+N[8]    ret	B[0]	
+N[10]   ld	L[3]  	-16	W[6]  
+N[11]   ld	L[1]  	-32	W[0]  
+N[15]   movi	0x00	W[3]  
+W[0]    write   G[12] 
+W[1]    write   G[1]  
+W[2]    write   G[2]  
+W[3]    write   G[3]  
+W[5]    write   G[13] 
+W[6]    write   G[14] 
+W[7]    write   G[15] 
+.bend
+

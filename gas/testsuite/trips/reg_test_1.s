@@ -1,0 +1,162 @@
+; Test :       reg_test_1
+; Author :     Karu
+; Purpose:  this test first fills all regs with values, reads them in
+;           consecutive order and checks if them sum up to the correct
+;           expected value 0x1f0
+
+.set SYS_EXIT=1        
+
+.global _start
+                        
+.text
+.bbegin _start
+  N[32]  gens 0 W[0]
+  N[33]  gens 1 W[1]
+  N[34]  gens 2 W[2]
+  N[35]  gens 3 W[3]
+  N[36]  gens 4 W[4]
+  N[37]  gens 5 W[5]
+  N[38]  gens 6 W[6]
+  N[39]  gens 7 W[7]
+  N[40]  gens 8 W[8]
+  N[41]  gens 9 W[9]
+  N[42]  gens 10 W[10]
+  N[43]  gens 11 W[11]
+  N[44]  gens 12 W[12]
+  N[45]  gens 13 W[13]
+  N[46]  gens 14 W[14]
+  N[47]  gens 15 W[15]
+  N[48]  gens 16 W[16]
+  N[49]  gens 17 W[17]
+  N[50]  gens 18 W[18]
+  N[51]  gens 19 W[19]
+  N[52]  gens 20 W[20]
+  N[53]  gens 21 W[21]
+  N[54]  gens 22 W[22]
+  N[55]  gens 23 W[23]
+  N[56]  gens 24 W[24]
+  N[57]  gens 25 W[25]
+  N[58]  gens 26 W[26]
+  N[59]  gens 27 W[27]
+  N[60]  gens 28 W[28]
+  N[61]  gens 29 W[29]
+  N[62]  gens 30 W[30]
+  N[63]  gens 31 W[31]
+
+  N[127] bro block1
+
+  W[0]   write G[124]
+  W[1]   write G[121]
+  W[2]   write G[118]
+  W[3]   write G[115]
+  W[4]   write G[112]
+  W[5]   write G[109]
+  W[6]   write G[106]
+  W[7]   write G[103]
+  W[8]   write G[100]
+  W[9]   write G[97]
+  W[10]  write G[94]
+  W[11]  write G[91]
+  W[12]  write G[88]
+  W[13]  write G[85]
+  W[14]  write G[82]
+  W[15]  write G[79]
+  W[16]  write G[76]
+  W[17]  write G[73]
+  W[18]  write G[70]
+  W[19]  write G[67]
+  W[20]  write G[64]
+  W[21]  write G[61]
+  W[22]  write G[58]
+  W[23]  write G[55]
+  W[24]  write G[52]
+  W[25]  write G[49]
+  W[26]  write G[46]
+  W[27]  write G[43]
+  W[28]  write G[40]
+  W[29]  write G[37]
+  W[30]  write G[34]
+  W[31]  write G[31]
+.bend
+
+.bbegin block1
+
+  R[0]   read G[124] N[0,0]
+  R[1]   read G[121] N[1 ,0]
+  R[2]   read G[118] N[2 ,0]
+  R[3]   read G[115] N[3 ,0]
+  R[4]   read G[112] N[4 ,0]
+  R[5]   read G[109] N[5 ,0]
+  R[6]   read G[106] N[6 ,0]
+  R[7]   read G[103] N[7 ,0]
+  R[8]   read G[100] N[8 ,0]
+  R[9]   read G[97] N[9 ,0]
+  R[10]  read G[94] N[10 ,0]
+  R[11]  read G[91] N[11 ,0]
+  R[12]  read G[88] N[12 ,0]
+  R[13]  read G[85] N[13 ,0]
+  R[14]  read G[82] N[14 ,0]
+  R[15]  read G[79] N[15 ,0]
+  R[16]  read G[76] N[16 ,0]
+  R[17]  read G[73] N[17 ,0]
+  R[18]  read G[70] N[18 ,0]
+  R[19]  read G[67] N[19 ,0]
+  R[20]  read G[64] N[20 ,0]
+  R[21]  read G[61] N[21 ,0]
+  R[22]  read G[58] N[22 ,0]
+  R[23]  read G[55] N[23 ,0]
+  R[24]  read G[52] N[24 ,0]
+  R[25]  read G[49] N[25 ,0]
+  R[26]  read G[46] N[26 ,0]
+  R[27]  read G[43] N[27 ,0]
+  R[28]  read G[40] N[28 ,0]
+  R[29]  read G[37] N[29 ,0]
+  R[30]  read G[34] N[30 ,0]
+  R[31]  read G[31] N[31 ,0]
+
+
+N[0] addi 0 N[1,1]
+N[1] add N[2,1]
+N[2] add N[3,1]
+N[3] add N[4,1]
+N[4] add N[5,1]
+N[5] add N[6,1]
+N[6] add N[7,1]
+N[7] add N[8,1]
+N[8] add N[9,1]
+N[9] add N[10,1]
+N[10] add N[11,1]
+N[11] add N[12,1]
+N[12] add N[13,1]
+N[13] add N[14,1]
+N[14] add N[15,1]
+N[15] add N[16,1]
+N[16] add N[17,1]
+N[17] add N[18,1]
+N[18] add N[19,1]
+N[19] add N[20,1]
+N[20] add N[21,1]
+N[21] add N[22,1]
+N[22] add N[23,1]
+N[23] add N[24,1]
+N[24] add N[25,1]
+N[25] add N[26,1]
+N[26] add N[27,1]
+N[27] add N[28,1]
+N[28] add N[29,1]
+N[29] add N[30,1]
+N[30] add N[31,1]
+N[31] add W[3]
+N[127] bro exit_block
+W[3] write G[3]
+
+.bend
+
+
+.bbegin exit_block
+N[0] movi SYS_EXIT W[0]
+N[1] scall
+
+W[0] write G[0]
+.bend exit_block
+
